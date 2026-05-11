@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Freelancer Rakib Hasan | Portfolio</title>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, sans-serif;
+    }
+
+    body{
+      background:#0b1120;
+      color:white;
+      overflow-x:hidden;
+    }
+
+    /* NAVBAR */
+
+    .navbar{
+      width:100%;
+      position:fixed;
+      top:0;
+      left:0;
+      z-index:999;
+      background:rgba(11,17,32,0.95);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(255,255,255,0.06);
+    }
+
+    .nav-container{
+      max-width:1200px;
+      margin:auto;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:20px 40px;
+    }
+
+    .logo{
+      font-size:28px;
+      font-weight:900;
+      color:white;
+    }
+
+    .logo span{
+      color:#22d3ee;
+    }
+
+    nav ul{
+      display:flex;
+      list-style:none;
+      gap:35px;
+    }
+
+    nav ul li a{
+      color:white;
+      text-decoration:none;
+      font-size:16px;
+      transition:0.3s;
+    }
+
+    nav ul li a:hover{
+      color:#22d3ee;
+    }
+
+    #menu-toggle{
+      display:none;
+    }
+
+    .menu-icon{
+      display:none;
+      font-size:30px;
+      cursor:pointer;
+    }
+
+    section{
+      width:100%;
+      padding:120px 40px 80px;
+      display:flex;
+      justify-content:center;
+    }
+
+    .container{
+      width:100%;
+      max-width:1200px;
+    }
+
+    .hero{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:60px;
+      flex-wrap:wrap;
+      min-height:100vh;
+    }
+
+    .hero-text{
+      flex:1;
+      min-width:300px;
+    }
+
+    .subtitle{
+      color:#22d3ee;
+      letter-spacing:4px;
+      text-transform:uppercase;
+      font-size:14px;
+      margin-bottom:20px;
+      font-weight:bold;
+    }
+
+    .title{
+      font-size:65px;
+      line-height:1.1;
+      font-weight:900;
+      margin-bottom:25px;
+    }
+
+    .title span{
+      color:#22d3ee;
+    }
+
+    .description{
+      color:#9ca3af;
+      font-size:18px;
+      line-height:1.8;
+      max-width:550px;
+    }
+
+    .hero-image{
+      flex:1;
+      min-width:300px;
+      display:flex;
+      justify-content:center;
+    }
+
+    .image-box{
+      position:relative;
+      width:420px;
+      border-radius:30px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,0.1);
+      box-shadow:0 20px 60px rgba(0,0,0,0.5);
+    }
+
+    .image-box img{
+      width:100%;
+      display:block;
+    }
+
+    .overlay{
+      position:absolute;
+      inset:0;
+      background:linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0.05));
+    }
+
+    .overlay-text{
+      position:absolute;
+      bottom:30px;
+      left:30px;
+      z-index:2;
+    }
+
+    .overlay-text h2{
+      font-size:38px;
+      margin-bottom:12px;
+    }
+
+    .overlay-text span{
+      color:#22d3ee;
+    }
+
+    .overlay-text p{
+      color:#e5e7eb;
+      line-height:1.7;
+    }
+
+    .about-section{
+      background:#111827;
+    }
+
+    .about-wrapper{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:60px;
+      align-items:center;
+    }
+
+    .about-image{
+      position:relative;
+    }
+
+    .about-image img{
+      width:100%;
+      max-width:420px;
+      border-radius:30px;
+      box-shadow:0 20px 50px rgba(0,0,0,0.5);
+    }
+
+    .experience-box{
+      position:absolute;
+      bottom:20px;
+      right:20px;
+      background:#22d3ee;
+      color:#0b1120;
+      padding:20px 25px;
+      border-radius:20px;
+      font-weight:bold;
+    }
+
+    .experience-box h3{
+      font-size:32px;
+    }
+
+    .about-content h5{
+      color:#22d3ee;
+      letter-spacing:3px;
+      margin-bottom:20px;
+    }
+
+    .about-content h2{
+      font-size:52px;
+      line-height:1.2;
+      margin-bottom:25px;
+    }
+
+    .about-content h2 span{
+      color:#22d3ee;
+    }
+
+    .about-content p{
+      color:#9ca3af;
+      line-height:1.9;
+      margin-bottom:30px;
+    }
+
+    .skills{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:20px;
+    }
+
+    .skill-card{
+      background:#1f2937;
+      padding:22px;
+      border-radius:20px;
+      transition:0.4s;
+    }
+
+    .skill-card:hover{
+      transform:translateY(-8px);
+      border:1px solid #22d3ee;
+    }
+
+    .skill-card h4{
+      margin-bottom:10px;
+      font-size:20px;
+    }
+
+    .skill-card p{
+      font-size:14px;
+      line-height:1.7;
+      margin:0;
+    }
+
+    .btn{
+      display:inline-block;
+      margin-top:35px;
+      padding:15px 35px;
+      background:#22d3ee;
+      color:#0b1120;
+      border-radius:50px;
+      text-decoration:none;
+      font-weight:bold;
+    }
+
+    /* PROFESSIONAL FOOTER */
+
+    .footer{
+      background:#070d1a;
+      padding:90px 40px 25px;
+      border-top:1px solid rgba(255,255,255,0.06);
+    }
+
+    .footer-container{
+      max-width:1200px;
+      margin:auto;
+    }
+
+    .footer-grid{
+      display:grid;
+      grid-template-columns:2fr 1fr 1fr 1.3fr;
+      gap:50px;
+      margin-bottom:60px;
+    }
+
+    .footer-brand h2{
+      font-size:38px;
+      margin-bottom:18px;
+      font-weight:900;
+    }
+
+    .footer-brand h2 span{
+      color:#22d3ee;
+    }
+
+    .footer-brand p{
+      color:#9ca3af;
+      line-height:1.9;
+      max-width:420px;
+      font-size:16px;
+    }
+
+    .footer-links h3,
+    .footer-services h3,
+    .footer-contact h3{
+      margin-bottom:22px;
+      font-size:22px;
+      color:white;
+    }
+
+    .footer-links ul,
+    .footer-services ul{
+      list-style:none;
+    }
+
+    .footer-links ul li,
+    .footer-services ul li{
+      margin-bottom:15px;
+      color:#9ca3af;
+      transition:0.3s;
+      cursor:pointer;
+    }
+
+    .footer-links ul li a{
+      text-decoration:none;
+      color:#9ca3af;
+      transition:0.3s;
+    }
+
+    .footer-links ul li:hover,
+    .footer-services ul li:hover,
+    .footer-links ul li a:hover{
+      color:#22d3ee;
+      transform:translateX(5px);
+    }
+
+    .footer-contact p{
+      color:#9ca3af;
+      margin-bottom:15px;
+      line-height:1.8;
+    }
+
+    .social-icons{
+      display:flex;
+      gap:15px;
+      margin-top:30px;
+      flex-wrap:wrap;
+    }
+
+    .social-icons a{
+      width:55px;
+      height:55px;
+      border-radius:50%;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background:#111827;
+      color:white;
+      text-decoration:none;
+      font-size:22px;
+      border:1px solid rgba(255,255,255,0.06);
+      transition:0.4s;
+    }
+
+    .social-icons a:hover{
+      background:#22d3ee;
+      color:#0b1120;
+      transform:translateY(-8px);
+      box-shadow:0 15px 30px rgba(34,211,238,0.25);
+    }
+
+    .footer-btn{
+      display:inline-block;
+      margin-top:18px;
+      padding:14px 28px;
+      background:#22d3ee;
+      color:#0b1120;
+      text-decoration:none;
+      border-radius:50px;
+      font-weight:bold;
+      transition:0.4s;
+    }
+
+    .footer-btn:hover{
+      transform:scale(1.05);
+    }
+
+    .footer-bottom{
+      border-top:1px solid rgba(255,255,255,0.06);
+      padding-top:28px;
+      text-align:center;
+    }
+
+    .footer-bottom p{
+      color:#6b7280;
+      font-size:15px;
+      letter-spacing:1px;
+    }
+
+    @media(max-width:950px){
+
+      .footer-grid{
+        grid-template-columns:1fr;
+        gap:40px;
+      }
+
+      .footer{
+        padding:70px 25px 25px;
+      }
+
+
+      .menu-icon{
+        display:block;
+      }
+
+      nav{
+        position:absolute;
+        top:80px;
+        left:0;
+        width:100%;
+        background:#111827;
+        max-height:0;
+        overflow:hidden;
+        transition:0.4s;
+      }
+
+      nav ul{
+        flex-direction:column;
+        padding:25px;
+        gap:20px;
+      }
+
+      #menu-toggle:checked ~ nav{
+        max-height:400px;
+      }
+
+
+      .hero,
+      .about-wrapper{
+        flex-direction:column;
+        grid-template-columns:1fr;
+      }
+
+      .title{
+        font-size:45px;
+      }
+
+      .about-content h2{
+        font-size:38px;
+      }
+
+      .skills{
+        grid-template-columns:1fr;
+      }
+
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+
+  <header class="navbar">
+
+    <div class="nav-container">
+
+      <div class="logo">
+        Rakib<span>Hasan</span>
+      </div>
+
+      <input type="checkbox" id="menu-toggle">
+
+      <label for="menu-toggle" class="menu-icon">
+        ☰
+      </label>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Portfolio</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+
+    </div>
+
+  </header>
+
+  <section>
+
+    <div class="container hero">
+
+      <div class="hero-text">
+
+        <p class="subtitle">Creative Web & Graphics Designer</p>
+
+        <h1 class="title">
+          Building <span>Modern</span> & <br>
+          Elegant Digital Experiences
+        </h1>
+
+        <p class="description">
+          I am a Web & Graphic Designer creating modern, premium websites and visually compelling brand designs.
+        </p>
+
+      </div>
+
+      <div class="hero-image">
+
+        <div class="image-box">
+
+          <img src="rakib.png" alt="Portfolio Image">
+
+          <div class="overlay"></div>
+
+          <div class="overlay-text">
+            <h2>Creative <span>Designer</span></h2>
+            <p>Modern website and brand experiences for premium businesses.</p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="about-section">
+
+    <div class="container about-wrapper">
+
+      <div class="about-image">
+
+        <img src="rakib2.png" alt="Rakib Hasan">
+
+        <div class="experience-box">
+          <h3>3+</h3>
+          <span>Years Experience</span>
+        </div>
+
+      </div>
+
+      <div class="about-content">
+
+        <h5>ABOUT ME</h5>
+
+        <h2>
+          I Create <span>Professional</span> Websites & Brand Designs
+        </h2>
+
+        <p>
+          I help businesses grow online with modern website design, clean UI/UX, logo design, branding, and creative digital experiences.
+        </p>
+
+        <div class="skills">
+
+          <div class="skill-card">
+            <h4>Web Design</h4>
+            <p>Modern responsive websites with premium layouts.</p>
+          </div>
+
+          <div class="skill-card">
+            <h4>Graphic Design</h4>
+            <p>Creative logo and social media branding design.</p>
+          </div>
+
+          <div class="skill-card">
+            <h4>UI/UX Design</h4>
+            <p>Clean interfaces designed for better user experience.</p>
+          </div>
+
+          <div class="skill-card">
+            <h4>Brand Identity</h4>
+            <p>Professional branding that helps businesses stand out.</p>
+          </div>
+
+        </div>
+
+        <a href="#" class="btn">Hire Me</a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- PROFESSIONAL FOOTER -->
+
+  <footer class="footer">
+
+    <div class="footer-container">
+
+      <div class="footer-grid">
+
+        <!-- BRAND -->
+
+        <div class="footer-brand">
+
+          <h2>Rakib<span>Hasan</span></h2>
+
+          <p>
+            Professional Web Designer & Graphic Designer focused on creating premium websites, modern branding, and high-quality digital experiences for businesses worldwide.
+          </p>
+
+          <div class="social-icons">
+            <a href="#" title="Facebook">📘</a>
+            <a href="#" title="Instagram">📸</a>
+            <a href="#" title="LinkedIn">💼</a>
+            <a href="#" title="YouTube">▶️</a>
+          </div>
+
+        </div>
+
+
+        <!-- QUICK LINKS -->
+
+        <div class="footer-links">
+
+          <h3>Quick Links</h3>
+
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Portfolio</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+
+        </div>
+
+
+        <!-- SERVICES -->
+
+        <div class="footer-services">
+
+          <h3>Services</h3>
+
+          <ul>
+            <li>Website Design</li>
+            <li>UI/UX Design</li>
+            <li>Logo Design</li>
+            <li>Brand Identity</li>
+            <li>Social Media Design</li>
+          </ul>
+
+        </div>
+
+
+        <!-- CONTACT -->
+
+        <div class="footer-contact">
+
+          <h3>Contact</h3>
+
+          <p>📧 creativeitrakibhasan2322@gmail.com</p>
+          <p>🌍 Available Worldwide</p>
+          <p>💻 Freelancer & Remote Designer</p>
+
+          <a href="#" class="footer-btn">Hire Me</a>
+
+        </div>
+
+      </div>
+
+
+      <div class="footer-bottom">
+        <p>© 2026 Rakib Hasan. All Rights Reserved.</p>
+      </div>
+
+    </div>
+
+  </footer>
+
+</body>
+</html>
